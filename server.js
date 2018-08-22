@@ -6,9 +6,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 const mongoose = require('./mongooseClient');
+
 const PORT = process.env.PORT || 3000;
+
+var cors = require("cors");
+app.use(cors());
+
 const Alumno = require('./alumnoModel');
+
 //CREATE
+
 app.post('/api/v1',(req,res) => {
     const {nombre,apellido,edad} = req.body;
 
