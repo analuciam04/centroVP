@@ -16,7 +16,7 @@ const Alumno = require('./alumnoModel');
 
 //CREATE
 
-app.post('/api/v1',(req,res) => {
+app.post('/api/v1/alumnos',(req,res) => {
     const {nombre,apellido,edad} = req.body;
 
     let nuevoAlumno = Alumno({
@@ -32,7 +32,7 @@ app.post('/api/v1',(req,res) => {
 });
 
 //READ ALL
-app.get('/api/v1', (req,res) => {
+app.get('/api/v1/alumnos', (req,res) => {
     Alumno.find().exec()
     .then(alumnos => {
         res.status(200).send(alumnos);
@@ -67,7 +67,7 @@ app.put('/api/v1/:aid', (req,res) =>{
         ciudad
     };
 
-    Alumno.findByIdAndUpdate(aid,alumnoActualizado, {new:true}).exec()
+    Alumno.findByIdAndUpdate(a6yid,alumnoActualizado, {new:true}).exec()
     .then(alumno_actualizado => {
         res.status(200).send(alumno_actualizado);
     })
